@@ -1,18 +1,23 @@
-#!/usr/bin/python3
-"""module representing whether a group ob boxes can be unlocked
-"""
-
-
+#!/usr/bin/python
 def canUnlockAll(boxes):
-    """determines if given boxes can be unlocked
-    """
-    keys = []
-    for box in boxes:
-        if len(box) == 0:
-            keys.append(0)
-        else:
-            keys.append(box[0])
-    unique_keys = list(set(keys))
-    if len(unique_keys) == len(boxes):
+    stack = [0]
+    unlocked = [0]
+    tracker = [0]
+    check = [False for i in range(len(boxes))]
+    while stack:
+        for val in boxes[stack[0]]:
+            if val not in tracker:
+                stack.insert(len(stack), val)
+        for val in boxes[stack[0]]:
+            if val not in unlocked:
+                unlocked.append(val)
+        tracker.append(stack[0])
+        stack.remove(stack[0])
+       # print('unlocked: {}'.format(unlocked))
+    for val in unlocked:
+        if val in range(len(boxes)):
+            check[val] = True
+    if False in check:
+        return False
+    else:
         return True
-    return False
