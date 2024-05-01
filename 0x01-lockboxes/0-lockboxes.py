@@ -1,26 +1,22 @@
 #!/usr/bin/python3
-"""module solving locked boxes"""
+""" lockbox module"""
 
 
 def canUnlockAll(boxes):
-    """determines if all boxes can be unlocked"""
-    stack = [0]
-    unlocked = [0]
-    tracker = [0]
-    check = [False for i in range(len(boxes))]
+    """Determines if all boxes can be unlocked using DFS starting from box 0."""
+    stack = [0]  # Start with the first box (index 0)
+    visited = [False] * len(boxes)
+    visited[0] = True  # Mark the first box as visited
+    
     while stack:
-        for val in boxes[stack[0]]:
-            if val not in tracker:
-                stack.insert(len(stack), val)
-        for val in boxes[stack[0]]:
-            if val not in unlocked:
-                unlocked.append(val)
-        tracker.append(stack[0])
-        stack.remove(stack[0])
-    for val in unlocked:
-        if val in range(len(boxes)):
-            check[val] = True
-    if False in check:
-        return False
-    else:
-        return True
+        current_box = stack.pop()  # Pop from the stack to perform DFS
+        
+        # Iterate through keys in the current box
+        for key in boxes[current_box]:
+            if 0 <= key < len(boxes) and not visited[key]:
+                # If the key leads to a valid, unvisited box, mark it as visited and add it to the stack
+                visited[key] = True
+                stack.append(key)
+    
+    # Check if all boxes have been visited
+    return all(visited)
