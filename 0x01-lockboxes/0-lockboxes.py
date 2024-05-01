@@ -5,7 +5,6 @@
 def canUnlockAll(boxes):
     """Determines if all boxes can be unlocked from box 0."""
     stack = [0]
-    # visited = [False] * len(boxes)
     visited = [False for i in range(len(boxes))]
     visited[0] = True
     while stack:
@@ -15,5 +14,4 @@ def canUnlockAll(boxes):
             if 0 <= key < len(boxes) and not visited[key]:
                 visited[key] = True
                 stack.append(key)
-    # return all(visited)
     return False not in visited
