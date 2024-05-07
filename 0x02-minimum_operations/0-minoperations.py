@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""minimum operations module"""
+
+
 def getPrime(start: int) -> int:
+    """returns next prime  number from start"""
     while True:
         if (start % 2 == 0) or (start % 3 == 0) or \
                 (start % 5 == 0) or (start % 7 == 0):
@@ -14,6 +18,7 @@ def getPrime(start: int) -> int:
 
 
 def minOperations(n: float) -> int:
+    """finds minimum operations to attain h"""
     val: int = 0
     prime: int = 2
     temp: float = n
