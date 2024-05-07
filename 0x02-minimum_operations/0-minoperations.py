@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def getPrime(start):
+def getPrime(start: int) -> int:
     while True:
         if (start % 2 == 0) or (start % 3 == 0) or \
                 (start % 5 == 0) or (start % 7 == 0):
@@ -13,10 +13,10 @@ def getPrime(start):
             break
 
 
-def minOperations(n):
-    val = 0
-    prime = 2
-    temp = n
+def minOperations(n: float) -> int:
+    val: int = 0
+    prime: int = 2
+    temp: float = n
     while n > 1:
         while (n % prime != 0):
             prime = getPrime(prime + 1)
