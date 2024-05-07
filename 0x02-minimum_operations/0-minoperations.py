@@ -30,7 +30,7 @@ def minOperations(n: float) -> int:
         if temp < prime:
             return 0
         n /= prime
-        """if (n == 1) and (prime == temp):
-            return 0"""
+        if (n == 1) and (prime == temp):
+            return 1
         val += prime
     return val
