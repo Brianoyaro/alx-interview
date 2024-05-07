@@ -19,7 +19,7 @@ def getPrime(start: int) -> int:
 
 def minOperations(n: float) -> int:
     """finds minimum operations to attain h"""
-    if (n == 0):
+    if (n < 1):
         return 0
     val: int = 0
     prime: int = 2
