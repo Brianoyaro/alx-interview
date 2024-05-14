@@ -41,4 +41,4 @@ try:
         i += 10
         terminate_point += 10
 except KeyboardInterrupt as e:
-    print(e)
+    pass
