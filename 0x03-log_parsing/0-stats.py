@@ -13,7 +13,7 @@ def signal_handler(sig, frame):
     sys.exit(0)
 
 
-signal.signal(signal.SIGINT, signal_handler)
+# signal.signal(signal.SIGINT, signal_handler)
 reg_exp = r"[\d\.]+[]\d\-\.:\s[]+\"GET /projects/260 HTTP/1.1\"[\d\s]+"
 allowed_code = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 file_size = 0
@@ -36,4 +36,4 @@ try:
                     print("{}: {}".format(key, value))
 except KeyboardInterrupt:
     # print("KeyboardInterrupt")
-    raise KeyboardInterrupt
+    pass
