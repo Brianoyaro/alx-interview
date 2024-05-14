@@ -11,7 +11,6 @@ def signal_handler(sig, frame):
 
 
 signal.signal(signal.SIGINT, signal_handler)
-
 reg_exp = r"[\d\.]+[]\d\-\.:\s[]+\"GET /projects/260 HTTP/1.1\"[\d\s]+"
 allowed_status_codes = [200, 301, 400, 401, 403, 404, 405, 500]
 lines = sys.stdin.read()
@@ -48,4 +47,4 @@ while lines[-1] != lines[terminate_point]:
         print("{}: {}".format(key, value))
     i += 10
     terminate_point += 10
-signal.pause()
+# signal.pause()
