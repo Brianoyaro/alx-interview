@@ -7,10 +7,7 @@ import signal
 
 def signal_handler(sig, frame):
     """sigint handler"""
-    for key, value in allowed_code.items():
-        if value > 0:
-            print("{}: {}".format(key, value))
-    sys.exit(0)
+    sys.exit()
 
 
 signal.signal(signal.SIGINT, signal_handler)
