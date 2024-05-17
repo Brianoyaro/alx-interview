@@ -18,7 +18,6 @@ total_lines = 0
 try:
     for line in sys.stdin:
         gateman = re.match(reg_exp, line)
-        print(gateman.group(0) == line)
         '''if line doesn't match regex expression, skip it'''
         if gateman.group(0) == line:
             total_lines += 1
