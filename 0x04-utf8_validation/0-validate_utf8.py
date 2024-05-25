@@ -9,6 +9,11 @@ def binary_function(n: int) -> str:
     '''returns a binary representation of a number
     '''
     bin_n = bin(n)[2:]
+
+    offset = len(bin_n) - 8
+    if offset > 0:
+        bin_n = bin_n[offset:]
+
     padding = 8 - len(bin_n)
     for _ in range(padding):
         bin_n = '0' + bin_n
@@ -57,8 +62,8 @@ def validUTF8(data: List[int]) -> bool:
         item = data.pop(0)
         '''byte can range from 0 - 255
         '''
-        if item > 255:
-            return False
+        '''if item > 255:
+            return False'''
         bin_item = binary_function(item)
         type_item = check_type(bin_item)
         if type_item == 1:
@@ -66,24 +71,32 @@ def validUTF8(data: List[int]) -> bool:
         if type_item == 2:
             '''next item should comply
             '''
-            check = is_next_valid(data)
-            if check is None:
+            if data:
+                check = is_next_valid(data)
+                if check is None:
+                    return False
+            else:
                 return False
-            continue
         if type_item == 3:
             '''next 2 items should comply
             '''
             for _ in range(2):
-                check = is_next_valid(data)
-                if check is None:
+                if data:
+                    check = is_next_valid(data)
+                    if check is None:
+                        return False
+                else:
                     return False
 
         if type_item == 4:
             '''next 3 items should comply
             '''
             for _ in range(3):
-                check = is_next_valid(data)
-                if check is None:
+                if data:
+                    check = is_next_valid(data)
+                    if check is None:
+                        return False
+                else:
                     return False
         if type_item == -1:
             return False

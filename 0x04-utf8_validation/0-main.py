@@ -14,7 +14,7 @@ print(validUTF8(data))
 data = [229, 65, 127, 256]
 print(validUTF8(data))
 
-# custom
+'''# custom
 data = [36]
 print(validUTF8(data))
 data = [194, 163]
@@ -31,7 +31,12 @@ data = [240, 144, 141, 136]
 print(validUTF8(data))
 data = [244, 137, 154, 179]
 print(validUTF8(data))
-'''invalid test case
-'''
+# false data
 data = [244, 36, 137, 154, 179]
+print(validUTF8(data))
+'''
+print('***********Where I failed***********')
+data = [467, 133, 108]
+print(validUTF8(data))
+data = [235, 140]
 print(validUTF8(data))
