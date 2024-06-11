@@ -11,3 +11,9 @@ if __name__ == "__main__":
 
     rotate_2d_matrix(matrix)
     print(matrix)
+    print('CUSTOM MATRIX')
+    matrix = [[1,1,1,1],
+              [2,2,2,2],
+              [3,3,3,3]]
+    rotate_2d_matrix(matrix)
+    print(matrix)
