@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+'''module that rotates a 2D matrix
+'''
+def rotate_2d_matrix(matrix):
+    '''function implementing matrix rotation
+    '''
+    number_of_stacks = len(matrix[0])
+    answer = []
+    for i in range(number_of_stacks):
+        semi_answer = []
+        row = len(matrix) - 1
+        while row >= 0:
+            semi_answer.append(matrix[row][i])
+            row -= 1
+        answer.append(semi_answer)
+    print(answer)
