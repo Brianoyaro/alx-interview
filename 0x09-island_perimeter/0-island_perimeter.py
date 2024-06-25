@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 '''island perimeter
 '''
+
+
 def island_perimeter(grid):
     '''finds the perimeter of an island
     '''
@@ -15,23 +17,24 @@ def island_perimeter(grid):
                 leftColumn = column - 1 if column - 1 >= 0 else 'Null'
                 rightColumn = column + 1 if column + 1 <= columns else 'Null'
                 # top_element
-                # if topRow is not 'Null' and grid[topRow][column] == 0 and (topRow, column) not in answers:
-                if topRow is not 'Null' and grid[topRow][column] == 0 and (topRow, column):
+                if topRow is not 'Null' and grid[topRow][column] == 0 and\
+                        (topRow, column):
                     answers.append((topRow, column))
                 # bottom_element
-                # if bottomRow is not 'Null' and grid[bottomRow][column] == 0 and (bottomRow, column) not in answers:
-                if bottomRow is not 'Null' and grid[bottomRow][column] == 0 and (bottomRow, column):
+                if bottomRow is not 'Null' and grid[bottomRow][column] == 0\
+                        and (bottomRow, column):
                     answers.append((bottomRow, column))
                 # left_element
-                # if leftColumn is not 'Null' and grid[row][leftColumn] == 0 and (row, leftColumn) not in answers:
-                if leftColumn is not 'Null' and grid[row][leftColumn] == 0 and (row, leftColumn):
+                if leftColumn is not 'Null' and grid[row][leftColumn] == 0\
+                        and (row, leftColumn):
                     answers.append((row, leftColumn))
                 # right_element
-                # if rightColumn is not 'Null' and grid[row][rightColumn] == 0 and (row, rightColumn) not in answers:
-                if rightColumn is not 'Null' and grid[row][rightColumn] == 0 and (row, rightColumn):
+                if rightColumn is not 'Null' and grid[row][rightColumn] == 0\
+                        and (row, rightColumn):
                     answers.append((row, rightColumn))
     # print('answers array is {}'.format(answers))
     return len(answers)
+
 
 '''if __name__ == "__main__":
     grid = [
